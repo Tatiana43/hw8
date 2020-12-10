@@ -47,7 +47,6 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -61,23 +60,17 @@
                     </execution>
                 </executions>
                 <configuration>
-                <rules>
-                    <rule>
-                        <element>BUNDLE</element>
-                        <limits>
-                            <limit>
-                                <counter>BRANCH</counter>
-                                <value>COVEREDRATIO</value>
-                                <minimum>100%</minimum>
-                            </limit>
-                            <limit>
-                                <counter>CLASS</counter>
-                                <value>MISSEDCOUNT</value>
-                                <maximum>0</maximum>
-                            </limit>
-                        </limits>
-                    </rule>
-                </rules>
+                    <rules>
+                        <rule>
+                            <limits>
+                                <limit>
+                                    <counter>BRANCH</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>100%</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
                 </configuration>
             </plugin>
         </plugins>

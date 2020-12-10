@@ -24,28 +24,46 @@ public class RadioTest {
         assertEquals(9, radio.getCurrentStation());
     }
 
+
     @Test
-    public void shouldCheckMediumStation(){
+    public void shouldCheckSetMaxStation(){
         Radio radio = new Radio();
 
-        radio.setCurrentStation(4);
-        radio.nextStation();
-        assertEquals(5, radio.getCurrentStation());
+        radio.setCurrentStation(10);
+        assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
-    public void shouldCheckSetStation(){
+    public void shouldCheckSetMinStation(){
         Radio radio = new Radio();
 
-        radio.setCurrentStation(3);
+        radio.setCurrentStation(-1);
+        assertEquals(9, radio.getCurrentStation());
+    }
+
+    @Test
+    public void shouldCheckNextStation(){
+        Radio radio = new Radio();
+
+        radio.setCurrentStation(2);
+        radio.nextStation();
         assertEquals(3, radio.getCurrentStation());
+    }
+
+    @Test
+    public void shouldCheckPreviousStation(){
+        Radio radio = new Radio();
+
+        radio.setCurrentStation(2);
+        radio.previousStation();
+        assertEquals(1, radio.getCurrentStation());
     }
 
     @Test
     public void shouldCheckMaxVolume(){
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(11);
         radio.volumeLevelUp();
         assertEquals(10, radio.getCurrentVolume());
     }
@@ -54,18 +72,27 @@ public class RadioTest {
     public void shouldCheckMinVolume(){
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(0);
+        radio.setCurrentVolume(-1);
         radio.volumeLevelDown();
         assertEquals(0, radio.getCurrentVolume());
     }
 
     @Test
-    public void shouldCheckMediumVolume(){
+    public void shouldCheckVolumeUp(){
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(5);
+        radio.setCurrentVolume(2);
+        radio.volumeLevelUp();
+        assertEquals(3, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldCheckVolumeDown(){
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(2);
         radio.volumeLevelDown();
-        assertEquals(4, radio.getCurrentVolume());
+        assertEquals(1, radio.getCurrentVolume());
     }
 
 }
